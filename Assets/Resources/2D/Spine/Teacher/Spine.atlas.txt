@@ -1,0 +1,146 @@
+
+Spine.png
+size: 128,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: true
+  xy: 64, 57
+  size: 26, 36
+  orig: 26, 36
+  offset: 0, 0
+  index: -1
+Body_Walk
+  rotate: true
+  xy: 26, 71
+  size: 21, 36
+  orig: 21, 36
+  offset: 0, 0
+  index: -1
+Head
+  rotate: true
+  xy: 68, 89
+  size: 16, 20
+  orig: 16, 20
+  offset: 0, 0
+  index: -1
+Head_Walk
+  rotate: false
+  xy: 111, 97
+  size: 15, 20
+  orig: 15, 20
+  offset: 0, 0
+  index: -1
+L_Foot
+  rotate: false
+  xy: 73, 119
+  size: 13, 7
+  orig: 13, 7
+  offset: 0, 0
+  index: -1
+L_UnderArm
+  rotate: true
+  xy: 2, 120
+  size: 6, 23
+  orig: 6, 23
+  offset: 0, 0
+  index: -1
+L_UnderLeg
+  rotate: true
+  xy: 27, 120
+  size: 6, 19
+  orig: 6, 19
+  offset: 0, 0
+  index: -1
+L_UpperArm
+  rotate: true
+  xy: 2, 110
+  size: 8, 19
+  orig: 8, 19
+  offset: 0, 0
+  index: -1
+L_UpperArm_Walk
+  rotate: true
+  xy: 23, 110
+  size: 8, 19
+  orig: 8, 19
+  offset: 0, 0
+  index: -1
+L_UpperLeg
+  rotate: true
+  xy: 88, 107
+  size: 10, 21
+  orig: 10, 21
+  offset: 0, 0
+  index: -1
+L_UpperLeg_2
+  rotate: true
+  xy: 35, 94
+  size: 12, 31
+  orig: 12, 31
+  offset: 0, 0
+  index: -1
+Pelvis
+  rotate: false
+  xy: 2, 77
+  size: 22, 19
+  orig: 22, 19
+  offset: 0, 0
+  index: -1
+Pelvis_Walk
+  rotate: true
+  xy: 90, 85
+  size: 20, 19
+  orig: 20, 19
+  offset: 0, 0
+  index: -1
+R_Foot
+  rotate: false
+  xy: 88, 119
+  size: 13, 7
+  orig: 13, 7
+  offset: 0, 0
+  index: -1
+R_UnderArm
+  rotate: true
+  xy: 48, 120
+  size: 6, 23
+  orig: 6, 23
+  offset: 0, 0
+  index: -1
+R_UnderLeg
+  rotate: true
+  xy: 103, 119
+  size: 7, 19
+  orig: 7, 19
+  offset: 0, 0
+  index: -1
+R_UpperArm
+  rotate: true
+  xy: 44, 109
+  size: 9, 19
+  orig: 9, 19
+  offset: 0, 0
+  index: -1
+R_UpperLeg
+  rotate: true
+  xy: 65, 108
+  size: 9, 21
+  orig: 9, 21
+  offset: 0, 0
+  index: -1
+R_UpperLeg_2
+  rotate: true
+  xy: 2, 98
+  size: 10, 31
+  orig: 10, 31
+  offset: 0, 0
+  index: -1
+background
+  rotate: true
+  xy: 2, 18
+  size: 37, 114
+  orig: 128, 128
+  offset: 46, 4
+  index: -1
