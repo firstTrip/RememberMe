@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Spine_Material
   m_Shader: {fileID: 4800000, guid: e260cfa7296ee7642b167f1eb5be5023, type: 3}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _OLD_HARD_RAMP _RECEIVE_SHADOWS _STRAIGHT_ALPHA_INPUT
-    _USE8NEIGHBOURHOOD_ON
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ALPHAPREMULTIPLY_ON _OLD_HARD_RAMP _RECEIVE_SHADOWS
+    _STRAIGHT_ALPHA_INPUT _USE8NEIGHBOURHOOD_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

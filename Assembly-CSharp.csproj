@@ -77,6 +77,8 @@
     <Compile Include="Assets\OtherAsset\com.esotericsoftware.spine.timeline-3.8-2020-10-28\com.esotericsoftware.spine.timeline-3.8\Runtime\SpineSkeletonFlip\SpineSkeletonFlipMixerBehaviour.cs" />
     <Compile Include="Assets\OtherAsset\com.esotericsoftware.spine.timeline-3.8-2020-10-28\com.esotericsoftware.spine.timeline-3.8\Runtime\SpineSkeletonFlip\SpineSkeletonFlipTrack.cs" />
     <Compile Include="Assets\Resources\Script\CameraMove.cs" />
+    <Compile Include="Assets\Resources\Script\Player.cs" />
+    <Compile Include="Assets\Resources\Script\PlayerCollision.cs" />
     <Compile Include="Assets\Resources\Script\Stage1_Cube.cs" />
     <Compile Include="Assets\Spine\Runtime\spine-csharp\Animation.cs" />
     <Compile Include="Assets\Spine\Runtime\spine-csharp\AnimationState.cs" />
