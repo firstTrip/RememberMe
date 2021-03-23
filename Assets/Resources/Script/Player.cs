@@ -15,12 +15,10 @@ public class Player : MonoBehaviour
     private float yRaw;
     private float xRaw;
 
-    private bool getItemFlag;
     private Vector3 dir;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        getItemFlag = false;
     }
 
     // Update is called once per frame
@@ -30,7 +28,6 @@ public class Player : MonoBehaviour
         dir = new Vector3(x, 0, y);
 
         Move();
-        Debug.Log(getItemFlag);
 
     }
 
