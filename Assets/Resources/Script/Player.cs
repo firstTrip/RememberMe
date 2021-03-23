@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     [Header("이동 속도")]
     [SerializeField] private float moveForce;
+    [Header("카메라 이동 속도")]
+    [SerializeField] private float rotSpeed;
 
     [Space]
 
@@ -15,10 +17,20 @@ public class Player : MonoBehaviour
     private float yRaw;
     private float xRaw;
 
+    [SerializeField] private Camera camera;
+
+    [SerializeField]
+    private float lookSensitivity;
+
+    [SerializeField]
+    private float cameraRotationLimit;
+    private float currentCameraRotationX = 0;
+
     private Vector3 dir;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        camera = Camera.main;
     }
 
     // Update is called once per frame
@@ -28,6 +40,9 @@ public class Player : MonoBehaviour
         dir = new Vector3(x, 0, y);
 
         Move();
+        CharacterRotation();
+        CameraRotation();
+        //CamRot();
 
     }
 
@@ -43,7 +58,35 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        rb.AddForce(dir *moveForce, ForceMode.Impulse);
+
+        float _moveDirX = Input.GetAxisRaw("Horizontal");
+        float _moveDirZ = Input.GetAxisRaw("Vertical");
+
+        Vector3 _moveHorizontal = transform.right * _moveDirX;
+        Vector3 _moveVertical = transform.forward * _moveDirZ;
+
+        Vector3 _velocity = (_moveHorizontal + _moveVertical).normalized * moveForce;
+
+        rb.MovePosition(transform.position + _velocity * Time.deltaTime);
+    }
+
+    private void CharacterRotation()
+    {
+        // 좌우 캐릭터 회전
+        float _yRotation = Input.GetAxisRaw("Mouse X");
+        Vector3 _characterRotationY = new Vector3(0f, _yRotation, 0f) * lookSensitivity;
+        rb.MoveRotation(rb.rotation * Quaternion.Euler(_characterRotationY));
+    }
+
+    private void CameraRotation()
+    {
+        // 상하 카메라 회전
+        float _xRotation = Input.GetAxisRaw("Mouse Y");
+        float _cameraRotationX = _xRotation * lookSensitivity;
+        currentCameraRotationX -= _cameraRotationX;
+        currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
+
+        camera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
     }
 
     private void OnTriggerStay(Collider other)
@@ -54,7 +97,6 @@ public class Player : MonoBehaviour
             Debug.Log("get Item");
 
         }
-
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Stage1_Cube : Stage
 {
@@ -8,13 +9,12 @@ public class Stage1_Cube : Stage
     void Start()
     {
         doors = GameObject.FindGameObjectsWithTag("Door");
+        transform.DORotate(new Vector3(90,0,0), 3);
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-         
-    }
+    
 
     public override void OpenNextStage()
     {

@@ -28,7 +28,7 @@ public class CameraMove : MonoBehaviour
     }
     private void LateUpdate()
     {
-        invisibleObject();
+        //invisibleObject();
         camera.transform.position = player.transform.position + new Vector3(xOffset, yOffSet, zOffset);
 
     }
@@ -36,8 +36,8 @@ public class CameraMove : MonoBehaviour
     void Initialized()
     {
         camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        yOffSet = 2;
-        zOffset = -3;
+        //yOffSet = 2;
+        //zOffset = -3;
     }
 
     void invisibleObject()
