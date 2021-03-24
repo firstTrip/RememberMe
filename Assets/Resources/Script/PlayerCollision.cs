@@ -11,7 +11,7 @@ public class PlayerCollision : MonoBehaviour
     [Space]
 
     [Header("Collision :")]
-    [Tooltip("Collision 크기 :")] [SerializeField] private float CollisionRadius = 0.1f;
+    [Tooltip("Collision 크기 :")] [SerializeField] private float CollisionRadius = 0.15f;
     [Tooltip("offset :")] [SerializeField] Vector3 BottomOffset, rightOffset, leftOffset;
 
     [Space]
@@ -19,17 +19,12 @@ public class PlayerCollision : MonoBehaviour
     public bool OnGround;
     public bool OnWall;
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         OnGround = Physics2D.OverlapCircle(transform.position + BottomOffset, CollisionRadius, groundLayer);
-        OnWall = Physics2D.OverlapCircle(transform.position + rightOffset, CollisionRadius, groundLayer)
-            || Physics2D.OverlapCircle(transform.position + leftOffset, CollisionRadius, groundLayer);
+        OnWall = Physics2D.OverlapCircle(transform.position + rightOffset, CollisionRadius, wallLayer)
+            || Physics2D.OverlapCircle(transform.position + leftOffset, CollisionRadius, wallLayer);
     }
 
     private void OnDrawGizmos()

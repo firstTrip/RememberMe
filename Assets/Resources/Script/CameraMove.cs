@@ -7,7 +7,6 @@ public class CameraMove : MonoBehaviour
     Camera camera;
 
     [SerializeField] private float xOffset,yOffSet, zOffset;
-    [SerializeField] private Vector3 camOffSet;
     [Tooltip("플레이어 :")] [SerializeField] private GameObject player;
     GameObject temp;
 
@@ -50,11 +49,11 @@ public class CameraMove : MonoBehaviour
 
         }
 
-        if(Physics.Raycast(transform.position + camOffSet, transform.forward, out hit, Mathf.Infinity, layerMask))
+        if(Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, layerMask))
         {
             Debug.Log("wall laycast");
             Debug.Log(hit.collider.gameObject.name);
-            Debug.DrawRay(transform.position + camOffSet, transform.forward * hit.distance, Color.red, 0.3f);
+            Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.red, 0.3f);
             temp = hit.collider.gameObject;
             temp.SetActive(false);
             // 나중에 스프라이트만 삭제로 변경
@@ -63,7 +62,7 @@ public class CameraMove : MonoBehaviour
         else
         {
             Debug.Log("not wall laycast");
-            Debug.DrawRay(transform.position + camOffSet, transform.forward * 1000f, Color.blue, 0.3f);
+            Debug.DrawRay(transform.position, transform.forward * 1000f, Color.blue, 0.3f);
 
         }
 

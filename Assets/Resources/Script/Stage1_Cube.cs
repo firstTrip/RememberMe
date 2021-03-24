@@ -13,8 +13,6 @@ public class Stage1_Cube : Stage
 
     }
 
-    // Update is called once per frame
-    
 
     public override void OpenNextStage()
     {
