@@ -5,19 +5,21 @@ using UnityEngine;
 public class Stage : MonoBehaviour
 {
 
-    protected bool crearFlag;
+
+    public bool clearFlag;
     protected GameObject[] doors;
+    protected GameObject[] Key;
 
     // Start is called before the first frame update
     void Start()
     {
-        crearFlag = false;
+        clearFlag = false;
     }
 
   
     public virtual void OpenNextStage()
     {
-        if (crearFlag)
+        if (clearFlag)
         {
             // 스테이지의 문이 활성화 상태로 변신 
         }

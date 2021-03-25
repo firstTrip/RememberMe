@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour
 {
-    private Camera camera;
+    private Camera theCamera;
 
     public bool useStaticBillboard;
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
+        theCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -18,10 +18,10 @@ public class Billboard : MonoBehaviour
     {
         if (!useStaticBillboard)
         {
-            transform.LookAt(camera.transform);
+            transform.LookAt(theCamera.transform);
         }else
         {
-            transform.rotation = camera.transform.rotation;
+            transform.rotation = theCamera.transform.rotation;
         }
 
         transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);

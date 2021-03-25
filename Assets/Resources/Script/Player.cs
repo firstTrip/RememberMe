@@ -10,22 +10,40 @@ public class Player : MonoBehaviour
     [SerializeField] private float applyForce;
     [SerializeField] private float runForce;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float crouchForce;
+    [SerializeField] private float rayLength;
+
+
+    [Space]
+
     [Header("카메라 이동 속도")]
     [SerializeField] private float rotSpeed;
 
     [Space]
+    [Header("좌표")]
+    [SerializeField] private float crouchPosY;
+    [SerializeField] private float originPosY;
+    [SerializeField] private float applyCrouchPosY;
+    [SerializeField] private GameObject rayTran;
 
+    [Space]
+    [Header("레이어 마스크")]
+    [SerializeField] private LayerMask interactionObject;
 
-    [SerializeField] private Camera camera;
+    [SerializeField] private Camera theCamera;
 
     [SerializeField]
     private float lookSensitivity;
 
     [SerializeField]
-    private float cameraRotationLimit;
+    private float cameraRotationLimit = 60f;
     private float currentCameraRotationX = 0;
 
-    private bool isRun;
+    [Space]
+
+    private GameObject interObject;
+    private RaycastHit ray;
+    private bool isCrouch;
 
     private Vector3 dir;
     private PlayerCollision coll;
@@ -34,23 +52,30 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         coll = GetComponent<PlayerCollision>();
-        camera = Camera.main;
-        isRun = false;
+        theCamera = Camera.main;
         applyForce = moveForce;
+        originPosY = theCamera.transform.localPosition.y;
+        applyCrouchPosY = originPosY;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Interaction();
         //inputManager();
         TryJump();
-
+        TryCroush();
         TryRun();
 
         Move();
         CharacterRotation();
         CameraRotation();
 
+    }
+
+    private void Initialized()
+    {
+        
     }
 
     #region 이동 함수
@@ -90,6 +115,51 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void TryCroush()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            Crouch();
+        }
+    }
+
+    public void Crouch()
+    {
+        isCrouch = !isCrouch;
+
+        if (isCrouch)
+        {
+            applyForce = crouchForce;
+            applyCrouchPosY = crouchPosY;
+        }
+        else
+        {
+            applyForce = moveForce;
+            applyCrouchPosY = originPosY;
+        }
+
+        StartCoroutine(CrouchCoroutine());
+    }
+
+    IEnumerator CrouchCoroutine()
+    {
+        float _posY = theCamera.transform.localPosition.y;
+        int count = 0;
+
+        Debug.Log(_posY);
+        while(_posY != applyCrouchPosY)
+        {
+            count++;
+            _posY = Mathf.Lerp(_posY, applyCrouchPosY, 0.3f);
+            theCamera.transform.localPosition = new Vector3(0, _posY, 0);
+            if (count > 15)
+                break;
+
+            yield return null;
+        }
+
+        theCamera.transform.localPosition = new Vector3(0f, applyCrouchPosY, 0f);
+    }
     private void Jump()
     {
         rb.AddForce(Vector3.up * jumpForce);
@@ -97,13 +167,11 @@ public class Player : MonoBehaviour
     private void Running()
     {
 
-        isRun = true;
         applyForce = runForce;
     }
 
     private void RunningCancle()
     {
-        isRun = false;
         applyForce = moveForce;
     }
     #endregion
@@ -125,9 +193,34 @@ public class Player : MonoBehaviour
         currentCameraRotationX -= _cameraRotationX;
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
 
-        camera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+        theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
     }
     #endregion
+
+    private void Interaction()
+    {
+
+        if (Input.GetMouseButton(0))
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out ray, rayLength))
+            {
+                Debug.Log("touch");
+                Debug.Log(ray.collider.name);
+                interObject = ray.collider.gameObject;
+                interObject.GetComponent<InterObject>().Action();
+            }
+        }
+        else
+        {
+            if (interObject != null)
+            {
+                Debug.Log("Don't touch");
+                interObject.GetComponent<InterObject>().StopAction();
+                interObject = null;
+            }
+        }
+
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -135,7 +228,6 @@ public class Player : MonoBehaviour
         if (other.tag == "Item")
         {
             Debug.Log("get Item");
-
         }
 
     }
