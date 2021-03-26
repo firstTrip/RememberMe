@@ -6,19 +6,16 @@ public class Placard : InterObject
 {
 
     [SerializeField] private Animator anim;
-
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
     void Update()
     {
+
         if (isActive)
         {
-            anim.speed = 0.4f;
+            anim.speed = 0.8f;
             anim.SetBool("spin", true);
          
         }
@@ -27,7 +24,14 @@ public class Placard : InterObject
             anim.speed = 0;
         }
 
+    }
 
+
+    public override void FinishKey()
+    {
+        Debug.Log("FinishKey");
+        isFinish = true;
+        thisStage.GetComponent<Stage>().CallFinish(isFinish);
     }
 
     public override void Action()

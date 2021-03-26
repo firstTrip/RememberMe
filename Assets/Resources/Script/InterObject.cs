@@ -5,13 +5,22 @@ using UnityEngine;
 public class InterObject : MonoBehaviour
 {
 
+    public bool isFinish;
     protected bool isActive;
+    public GameObject thisStage;
     // Start is called before the first frame update
+
     void Start()
     {
         isActive = false;
+        isFinish = false;
     }
 
+    public virtual void FinishKey()
+    {
+        isFinish = true;
+        thisStage.GetComponent<Stage>().CallFinish(isFinish);
+    } 
 
     public virtual void Action()
     {

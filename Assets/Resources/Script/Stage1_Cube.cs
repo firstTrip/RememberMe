@@ -8,20 +8,29 @@ public class Stage1_Cube : Stage
     // Start is called before the first frame update
     void Start()
     {
-        doors = GameObject.FindGameObjectsWithTag("Door");
 
     }
 
+    private void Update()
+    {
+        OpenNextStage();
+
+    }
+
+    public override void CallFinish(bool temp)
+    {
+        clearFlag = temp;
+    }
 
     public override void OpenNextStage()
     {
-        if (clearFlag)
+        Debug.Log(clearFlag);
+        if (clearFlag)  
         {
             for(int i = 0; i < doors.Length; i++)
             {
                 doors[i].SetActive(false);
             }
         }
-        
     }
 }
