@@ -24,7 +24,6 @@ public class Stage : MonoBehaviour
         if (clearFlag)
         {
             
-            
         }
     }
 }

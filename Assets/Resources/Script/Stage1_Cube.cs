@@ -14,7 +14,6 @@ public class Stage1_Cube : Stage
     private void Update()
     {
         OpenNextStage();
-
     }
 
     public override void CallFinish(bool temp)
