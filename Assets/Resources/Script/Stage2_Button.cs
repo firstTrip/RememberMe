@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage2_Quiz_1 : InterObject
+public class Stage2_Button : InterObject
 {
-    [SerializeField] private GameObject[] Buttons;
-
+    private int cnt;
+    // Start is called before the first frame update
+    void Start()
+    {
+        cnt = 0;
+    }
     public override void FinishKey()
     {
         Debug.Log("FinishKey");
@@ -15,13 +19,12 @@ public class Stage2_Quiz_1 : InterObject
 
     public override void Action()
     {
-        Debug.Log("play2");
-        isActive = true;
+        cnt++;
+        Debug.Log(cnt);
     }
 
     public override void StopAction()
     {
-        Debug.Log("playStop2");
-        isActive = false;
+
     }
 }

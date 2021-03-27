@@ -202,7 +202,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out ray, rayLength))
+            Debug.Log("Don't ineraction touch");
+            if (Physics.Raycast(transform.position, transform.forward, out ray, rayLength, interactionObject))
             {
                 Debug.Log("touch");
                 Debug.Log(ray.collider.name);
