@@ -19,6 +19,11 @@ public class Stage : MonoBehaviour
         clearFlag = temp;
     }
 
+    public virtual void CallFinish()
+    {
+
+    }
+
     public virtual void OpenNextStage()
     {
         if (clearFlag)

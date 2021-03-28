@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
-public class Stage2_Cube : Stage
+public class Stage4_Light : Stage
 {
+
     public bool[] Answer;
 
-    private void Start()
-    {
-        transform.DORotate(new Vector3(90, 0, 0), 30).SetLoops(-1,LoopType.Incremental);
-    }
+    // Start is called before the first frame update
     private void Update()
     {
         OpenNextStage();
@@ -19,10 +16,10 @@ public class Stage2_Cube : Stage
 
     public override void CallFinish()
     {
-        for(int i = 0; i < Key.Length; i++)
+        for (int i = 0; i < Key.Length; i++)
         {
 
-            if(Key[i] == null)
+            if (Key[i] == null)
             {
                 Debug.Log("no have Key");
             }
@@ -30,7 +27,7 @@ public class Stage2_Cube : Stage
             Debug.Log("into");
         }
 
-        if (Answer[0] && Answer[1] && Answer[2] && Answer[3])
+        if (Answer[0] && Answer[1] && Answer[2] && Answer[3] && Answer[4])
             clearFlag = true;
 
         Debug.Log(clearFlag);
@@ -47,5 +44,4 @@ public class Stage2_Cube : Stage
             }
         }
     }
-
 }

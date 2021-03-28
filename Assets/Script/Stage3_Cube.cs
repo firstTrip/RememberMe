@@ -13,6 +13,7 @@ public class Stage3_Cube : Stage
         shakeVector = 1.5f;
         shakeDuration = 0.2f;
         transform.DOShakePosition(shakeDuration, new Vector3(shakeVector, 0, shakeVector)).SetLoops(-1, LoopType.Incremental);
+        clearFlag = true;
     }
     private void Update()
     {

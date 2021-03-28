@@ -362,26 +362,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b82fb26bb11023d47800e9e4467b922c, type: 3}
---- !u!1 &1365679347 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5356275170019657183, guid: b82fb26bb11023d47800e9e4467b922c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1365679346}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1365679348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365679347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4f81cafae175c848a391a2a1452de86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clearFlag: 0
-  doors: []
-  Key: []
-  shakeDuration: 0
-  shakeVector: 100
