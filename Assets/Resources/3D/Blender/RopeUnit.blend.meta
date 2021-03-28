@@ -1,34 +1,14 @@
 fileFormatVersion: 2
-guid: 99b1efe9baf081648a0b4389a5eb5da9
+guid: b5968ec6ac0c7f042b2c7c193aded80a
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Backback
-    second: {fileID: 2100000, guid: db175c222403edb40890968e4a134f24, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Backback.002
-    second: {fileID: 2100000, guid: 906c1adb58e26724f921caa6177b5333, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Backback.003
-    second: {fileID: 2100000, guid: 00ae415e9920c5f4d988bf7d98f62a96, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Backback.005
-    second: {fileID: 2100000, guid: 07d82cd721804f7458c197d329853cdd, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

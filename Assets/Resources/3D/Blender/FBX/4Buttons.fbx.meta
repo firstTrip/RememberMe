@@ -1,14 +1,62 @@
 fileFormatVersion: 2
-guid: c478ca49b350f284183f42d386f02834
+guid: 8dd54f66a2e9c864486186a01ffe8989
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1647421551562651161
+    second: Button3|Button1Action
+  - first:
+      74: -6092056527425841666
+    second: Button3|Button2Action
+  - first:
+      74: 2875133315221141382
+    second: Button3|Button3Action
+  - first:
+      74: 5967341900408363661
+    second: Button3|Button4Action
+  - first:
+      74: 4983250742970569300
+    second: Button2|Button1Action
+  - first:
+      74: 4040059569516193342
+    second: Button2|Button2Action
+  - first:
+      74: 1965906126455095422
+    second: Button2|Button3Action
+  - first:
+      74: -672278444935738532
+    second: Button2|Button4Action
+  - first:
+      74: 455208539101855249
+    second: Button1|Button1Action
+  - first:
+      74: 1557923431532558495
+    second: Button1|Button2Action
+  - first:
+      74: 4116610501796241595
+    second: Button1|Button3Action
+  - first:
+      74: -8637819980150511589
+    second: Button1|Button4Action
+  - first:
+      74: 6704058179822330137
+    second: Button4|Button1Action
+  - first:
+      74: -9106919208108058354
+    second: Button4|Button2Action
+  - first:
+      74: 4734308624310948048
+    second: Button4|Button3Action
+  - first:
+      74: -3848736358111858469
+    second: Button4|Button4Action
   externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
