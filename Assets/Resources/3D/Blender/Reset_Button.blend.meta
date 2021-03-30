@@ -1,66 +1,17 @@
 fileFormatVersion: 2
-guid: b4a79a799e77a3d48885ecce6b5e2a37
+guid: 1ed1401baddb7054e94add413ee15cb8
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: 1647421551562651161
-    second: Button3|Button1Action
-  - first:
-      74: -6092056527425841666
-    second: Button3|Button2Action
-  - first:
-      74: 2875133315221141382
-    second: Button3|Button3Action
-  - first:
-      74: 5967341900408363661
-    second: Button3|Button4Action
-  - first:
-      74: -915403946401116529
-    second: Button2_Base|Button1Action
-  - first:
-      74: 2472315274993751350
-    second: Button2_Base|Button2_BaseAction
-  - first:
-      74: -7717636289742807300
-    second: Button2_Base|Button2Action
-  - first:
-      74: -8679976608945097370
-    second: Button2_Base|Button3Action
-  - first:
-      74: 7360066156342745824
-    second: Button2_Base|Button4Action
-  - first:
-      74: 4983250742970569300
-    second: Button2|Button1Action
-  - first:
-      74: -1933586023172801981
-    second: Button2|Button2_BaseAction
-  - first:
-      74: 4040059569516193342
-    second: Button2|Button2Action
-  - first:
-      74: 1965906126455095422
-    second: Button2|Button3Action
-  - first:
-      74: -672278444935738532
-    second: Button2|Button4Action
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 4Buttons
-    second: {fileID: 2100000, guid: 5199a49ee30502f4a8c8fac7e5b5a043, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Reset_Button
-    second: {fileID: 2100000, guid: 42d11f4a49981894082e302a0d6a5527, type: 2}
+      74: -623603649343465320
+    second: Scene
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
