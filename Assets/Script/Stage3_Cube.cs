@@ -8,16 +8,34 @@ public class Stage3_Cube : Stage
 
     [SerializeField] private float shakeDuration;
     [SerializeField] private float shakeVector;
+
+    public GameObject[] nextStage;
     private void Start()
     {
         shakeVector = 1.5f;
         shakeDuration = 0.2f;
-        transform.DOShakePosition(shakeDuration, new Vector3(shakeVector, 0, shakeVector)).SetLoops(-1, LoopType.Incremental);
+        stageStartFlag = false;
         clearFlag = true;
     }
     private void Update()
     {
-        OpenNextStage();
+        if (stageStartFlag)
+        {
+            transform.DOShakePosition(shakeDuration, new Vector3(shakeVector, 0, shakeVector)).SetLoops(-1, LoopType.Incremental);
+            stageStartFlag = false;
+            OpenNextStage();
+
+            for (int j =0; j < closeDoors.Length; j++)
+            {
+                closeDoors[j].SetActive(true);
+            }
+
+            for (int j = 0; j < nextStage.Length; j++)
+            {
+                nextStage[j].SetActive(false);
+            }
+
+        }
     }
 
     public override void CallFinish(bool temp)
@@ -27,13 +45,14 @@ public class Stage3_Cube : Stage
 
     public override void OpenNextStage()
     {
-        Debug.Log(clearFlag);
-        if (clearFlag)
+        base.OpenNextStage();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            for (int i = 0; i < doors.Length; i++)
-            {
-                doors[i].SetActive(false);
-            }
+            this.stageStartFlag = true;
         }
     }
 }

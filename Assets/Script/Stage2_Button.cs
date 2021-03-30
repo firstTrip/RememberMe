@@ -25,7 +25,6 @@ public class Stage2_Button : InterObject
 
         if (cnt == RightCnt)
         {
-            Debug.Log("collect");
             isFinish = true;
             thisStage.GetComponent<Stage>().CallFinish();
         }
@@ -51,7 +50,6 @@ public class Stage2_Button : InterObject
             cnt++;
             anim.speed = 3.0f;
             anim.SetBool("Button", false);
-            Debug.Log(cnt);
             time = 0;
         }
     }
@@ -59,7 +57,5 @@ public class Stage2_Button : InterObject
     public override void StopAction()
     {
 
-
-        //cnt = 0;
     }
 }

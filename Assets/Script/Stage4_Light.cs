@@ -10,6 +10,13 @@ public class Stage4_Light : Stage
     // Start is called before the first frame update
     private void Update()
     {
+        if (stageStartFlag)
+        {
+            for (int j = 0; j < closeDoors.Length; j++)
+            {
+                closeDoors[j].SetActive(true);
+            }
+        }
         OpenNextStage();
 
     }
@@ -24,24 +31,23 @@ public class Stage4_Light : Stage
                 Debug.Log("no have Key");
             }
             Answer[i] = Key[i].GetComponent<Stage2_Button>().isFinish;
-            Debug.Log("into");
         }
 
         if (Answer[0] && Answer[1] && Answer[2] && Answer[3] && Answer[4])
             clearFlag = true;
 
-        Debug.Log(clearFlag);
     }
 
     public override void OpenNextStage()
     {
-        Debug.Log(clearFlag);
-        if (clearFlag)
+        base.OpenNextStage();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            for (int i = 0; i < doors.Length; i++)
-            {
-                doors[i].SetActive(false);
-            }
+            this.stageStartFlag = true;
         }
     }
 }

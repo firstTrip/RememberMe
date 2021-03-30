@@ -6,7 +6,9 @@ public class Stage : MonoBehaviour
 {
 
     public bool clearFlag;
+    public bool stageStartFlag;
     public GameObject[] doors;
+    public GameObject[] closeDoors;
     public GameObject[] Key;
 
     void Start()
@@ -28,7 +30,18 @@ public class Stage : MonoBehaviour
     {
         if (clearFlag)
         {
-            
+            for (int i = 0; i < doors.Length; i++)
+            {
+                doors[i].SetActive(false);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            this.stageStartFlag = true;
         }
     }
 }

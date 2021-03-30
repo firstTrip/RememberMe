@@ -237,7 +237,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.08
   m_Center: {x: 0, y: -0.09, z: 0}
 --- !u!1 &1655965767
 GameObject:
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 9113722468031121673}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,12 +418,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60192aff5d103b64e8402a87088f7093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 10
+  moveForce: 15
   applyForce: 0
-  runForce: 30
+  runForce: 25
   jumpForce: 500
-  crouchForce: 5
-  rayLength: 7
+  crouchForce: 8
+  rayLength: 8
   rotSpeed: 0
   crouchPosY: 0
   originPosY: 0

@@ -23,7 +23,6 @@ public class Stage1_Cube : Stage
 
     public override void OpenNextStage()
     {
-        Debug.Log(clearFlag);
         if (clearFlag)  
         {
             for(int i = 0; i < doors.Length; i++)

@@ -6,13 +6,30 @@ using DG.Tweening;
 public class Stage2_Cube : Stage
 {
     public bool[] Answer;
+    public GameObject[] nextStage;
 
     private void Start()
     {
-        transform.DORotate(new Vector3(90, 0, 0), 30).SetLoops(-1,LoopType.Incremental);
+        stageStartFlag = false;
     }
     private void Update()
     {
+        if (stageStartFlag)
+        {
+            for (int i = 0; i < closeDoors.Length; i++)
+            {
+                closeDoors[i].SetActive(true);
+            }
+
+            for (int j = 0; j < nextStage.Length; j++)
+            {
+                nextStage[j].SetActive(false);
+            }
+
+            transform.DORotate(new Vector3(90, 0, 0), 30).SetLoops(-1, LoopType.Incremental);
+            stageStartFlag = false;
+        }
+
         OpenNextStage();
 
     }
@@ -27,25 +44,36 @@ public class Stage2_Cube : Stage
                 Debug.Log("no have Key");
             }
             Answer[i] = Key[i].GetComponent<Stage2_Button>().isFinish;
-            Debug.Log("into");
         }
 
         if (Answer[0] && Answer[1] && Answer[2] && Answer[3])
+        {
             clearFlag = true;
+            DOTween.Pause(this.gameObject);
+        }
 
-        Debug.Log(clearFlag);
     }
 
     public override void OpenNextStage()
     {
-        Debug.Log(clearFlag);
         if (clearFlag)
         {
             for (int i = 0; i < doors.Length; i++)
             {
                 doors[i].SetActive(false);
             }
+
+            for (int j = 0; j < nextStage.Length; j++)
+            {
+                nextStage[j].SetActive(true);
+            }
         }
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            this.stageStartFlag = true;
+        }
+    }
 }
