@@ -32,6 +32,7 @@ public class Placard : InterObject
         Debug.Log("FinishKey");
         isFinish = true;
         thisStage.GetComponent<Stage>().CallFinish(isFinish);
+        AudioManager.Instance.PlaySound("DOIT");
     }
 
     public override void Action()

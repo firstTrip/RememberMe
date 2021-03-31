@@ -50,6 +50,7 @@ public class Stage2_Button : InterObject
             cnt++;
             anim.speed = 3.0f;
             anim.SetBool("Button", false);
+            AudioManager.Instance.PlaySound("DOIT");
             time = 0;
         }
     }

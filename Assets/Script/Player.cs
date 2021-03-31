@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     [Space]
     [Header("레이어 마스크")]
     [SerializeField] private LayerMask interactionObject;
+    [SerializeField] private LayerMask GruondLayer;
 
     [SerializeField] private Camera theCamera;
 
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
     private GameObject interObject;
     private RaycastHit ray;
     private bool isCrouch;
+    [SerializeField] [Tooltip("땅이야?")] private bool isGruond;
 
     private Vector3 dir;
     private PlayerCollision coll;
@@ -61,6 +63,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IsGruond();
         Interaction();
         //inputManager();
         TryJump();
@@ -85,12 +88,21 @@ public class Player : MonoBehaviour
         float _moveDirX = Input.GetAxisRaw("Horizontal");
         float _moveDirZ = Input.GetAxisRaw("Vertical");
 
+        
         Vector3 _moveHorizontal = transform.right * _moveDirX;
         Vector3 _moveVertical = transform.forward * _moveDirZ;
 
         Vector3 _velocity = (_moveHorizontal + _moveVertical).normalized * applyForce;
 
         rb.MovePosition(transform.position + _velocity * Time.deltaTime);
+        float time = 0f;
+        time += Time.deltaTime;
+
+        if (time > 0.2f)
+        {
+            //AudioManager.Instance.PlaySound("Walk");
+            time = 0f;
+        }
     }
 
     private void TryRun()
@@ -109,10 +121,14 @@ public class Player : MonoBehaviour
     private void TryJump()
     {
         // coll 에서 콜라이더 안부디치는거 수정
-        if (Input.GetKeyDown(KeyCode.Space) && !coll.OnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isGruond)
         {
             Jump();
         }
+    }
+    private void IsGruond()
+    {
+        isGruond = Physics.Raycast(transform.position, Vector3.down, 5f, GruondLayer);
     }
 
     private void TryCroush()
@@ -163,6 +179,7 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         rb.AddForce(Vector3.up * jumpForce);
+        AudioManager.Instance.PlaySound("Jump");
     }
     private void Running()
     {

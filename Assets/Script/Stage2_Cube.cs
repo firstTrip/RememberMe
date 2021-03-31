@@ -49,7 +49,8 @@ public class Stage2_Cube : Stage
         if (Answer[0] && Answer[1] && Answer[2] && Answer[3])
         {
             clearFlag = true;
-            DOTween.Pause(this.gameObject);
+            transform.DOPause();
+            //this.gameObject.transform.localRotation = new Quaternion(-0.647f,-90,180,0);
         }
 
     }

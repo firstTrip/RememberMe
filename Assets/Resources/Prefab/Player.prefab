@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51140615}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.116, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1655965768}
@@ -421,7 +421,7 @@ MonoBehaviour:
   moveForce: 15
   applyForce: 0
   runForce: 25
-  jumpForce: 500
+  jumpForce: 350
   crouchForce: 8
   rayLength: 8
   rotSpeed: 0
@@ -432,9 +432,13 @@ MonoBehaviour:
   interactionObject:
     serializedVersion: 2
     m_Bits: 4096
+  GruondLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   theCamera: {fileID: 0}
   lookSensitivity: 1
   cameraRotationLimit: 60
+  isGruond: 0
 --- !u!114 &190118478509925708
 MonoBehaviour:
   m_ObjectHideFlags: 0
