@@ -26,7 +26,8 @@ public class Stage2_Cube : Stage
                 nextStage[j].SetActive(false);
             }
 
-            transform.DORotate(new Vector3(90, 0, 0), 30).SetLoops(-1, LoopType.Incremental);
+            transform.DORotate(new Vector3(90f, 0f, 0f), 30, RotateMode.LocalAxisAdd).SetLoops(-1, LoopType.Incremental);
+            
             stageStartFlag = false;
         }
 
