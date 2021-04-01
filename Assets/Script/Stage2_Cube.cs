@@ -26,7 +26,7 @@ public class Stage2_Cube : Stage
                 nextStage[j].SetActive(false);
             }
 
-            transform.DORotate(new Vector3(90f, 0f, 0f), 30, RotateMode.LocalAxisAdd).SetLoops(-1, LoopType.Incremental);
+            transform.DORotate(new Vector3(90f, 0f, 0f), 30).SetLoops(-1, LoopType.Incremental);
             
             stageStartFlag = false;
         }
@@ -51,6 +51,7 @@ public class Stage2_Cube : Stage
         {
             clearFlag = true;
             transform.DOPause();
+            transform.localRotation = Quaternion.Euler(new Vector3(0,-90,180));
             //this.gameObject.transform.localRotation = new Quaternion(-0.647f,-90,180,0);
         }
 
