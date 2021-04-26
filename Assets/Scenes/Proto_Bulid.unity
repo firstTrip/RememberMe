@@ -745,13 +745,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1124967281769277832, guid: b45c4c1a333934e4fb923cffd91cec1a,
         type: 3}
-      propertyPath: grabObject.m_Bits
-      value: 8192
+      propertyPath: jumpForce
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 1124967281769277832, guid: b45c4c1a333934e4fb923cffd91cec1a,
         type: 3}
-      propertyPath: gruondLayer.m_Bits
-      value: 2048
+      propertyPath: rotSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5525728975247910749, guid: b45c4c1a333934e4fb923cffd91cec1a,
         type: 3}
@@ -813,6 +813,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9113722468031121673, guid: b45c4c1a333934e4fb923cffd91cec1a,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedComponents:
     - {fileID: 190118478509925708, guid: b45c4c1a333934e4fb923cffd91cec1a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b45c4c1a333934e4fb923cffd91cec1a, type: 3}
