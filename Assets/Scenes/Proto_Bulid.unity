@@ -650,6 +650,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 1124967281769277832, guid: b45c4c1a333934e4fb923cffd91cec1a,
+        type: 3}
+      propertyPath: jumpForce
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124967281769277832, guid: b45c4c1a333934e4fb923cffd91cec1a,
+        type: 3}
+      propertyPath: rotSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5525728975247910749, guid: b45c4c1a333934e4fb923cffd91cec1a,
         type: 3}
       propertyPath: m_Name
@@ -709,6 +719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113722468031121673, guid: b45c4c1a333934e4fb923cffd91cec1a,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b45c4c1a333934e4fb923cffd91cec1a, type: 3}
