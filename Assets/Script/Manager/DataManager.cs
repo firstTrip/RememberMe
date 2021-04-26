@@ -5,6 +5,7 @@ using System.IO;
 
 public class DataManager : MonoBehaviour
 {
+    /*
     public GameData _gameData;
     public GameData gameData
     {
@@ -18,6 +19,7 @@ public class DataManager : MonoBehaviour
         }
         return _gameData;
     }
+    */
 
     #region SingleTon
     /* SingleTon */
@@ -32,7 +34,7 @@ public class DataManager : MonoBehaviour
                 if (!instance)
                 {
                     GameObject container = new GameObject();
-                    container.name = "AudioManager";
+                    container.name = "DataManager";
                     instance = container.AddComponent(typeof(DataManager)) as DataManager;
                 }
             }
@@ -56,5 +58,5 @@ public class DataManager : MonoBehaviour
 
     }
 
-
+    
 }

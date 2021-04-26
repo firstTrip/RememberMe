@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Rigidbody rb;
+
+    #region 변수
     [Header("이동 속도")]
     [SerializeField] private float moveForce;
     [SerializeField] private float applyForce;
     [SerializeField] private float runForce;
     [SerializeField] private float jumpForce;
     [SerializeField] private float crouchForce;
+
+    [Space]
+    [Header("물건 인식 길이:")]
     [SerializeField] private float rayLength;
 
 
@@ -29,10 +33,12 @@ public class Player : MonoBehaviour
     [Space]
     [Header("레이어 마스크")]
     [SerializeField] private LayerMask interactionObject;
-    [SerializeField] private LayerMask GruondLayer;
+    [SerializeField] private LayerMask grabObject;
+    [SerializeField] private LayerMask gruondLayer;
 
-    [SerializeField] private Camera theCamera;
 
+    [Space]
+    [Header("카메라 민감도")]
     [SerializeField]
     private float lookSensitivity;
 
@@ -41,31 +47,37 @@ public class Player : MonoBehaviour
     private float currentCameraRotationX = 0;
 
     [Space]
+    [SerializeField] [Tooltip("땅이야?")] private bool isGruond;
 
+
+    [SerializeField] private GameObject hasItem;
     private GameObject interObject;
     private RaycastHit ray;
     private bool isCrouch;
-    [SerializeField] [Tooltip("땅이야?")] private bool isGruond;
+    #endregion
 
-    private Vector3 dir;
-    private PlayerCollision coll;
+    #region Component
 
+    private Rigidbody rb;
+    [SerializeField] private Camera theCamera;
+
+    #endregion
+
+    #region Start
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        coll = GetComponent<PlayerCollision>();
-        theCamera = Camera.main;
-        applyForce = moveForce;
-        originPosY = theCamera.transform.localPosition.y;
-        applyCrouchPosY = originPosY;
+        Initialized();
     }
+    #endregion
 
+    #region Update
     // Update is called once per frame
     void Update()
     {
         IsGruond();
         Interaction();
         //inputManager();
+        TryGrab();
         TryJump();
         TryCroush();
         TryRun();
@@ -76,12 +88,21 @@ public class Player : MonoBehaviour
 
     }
 
+    #endregion 
+
+    #region Initialized
     private void Initialized()
     {
-        
-    }
+        rb = GetComponent<Rigidbody>();
+        theCamera = Camera.main;
+        applyForce = moveForce;
+        originPosY = theCamera.transform.localPosition.y;
+        applyCrouchPosY = originPosY;
 
-    #region 이동 함수
+    }
+    #endregion
+
+    #region Move
     private void Move()
     {
 
@@ -102,6 +123,21 @@ public class Player : MonoBehaviour
         {
             //AudioManager.Instance.PlaySound("Walk");
             time = 0f;
+        }
+    }
+    #endregion
+
+    #region Try Func
+    private void TryGrab()
+    {
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
+        {
+            Grab();
+        }
+        
+        if(Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.E))
+        {
+            CancleGrab();
         }
     }
 
@@ -126,11 +162,6 @@ public class Player : MonoBehaviour
             Jump();
         }
     }
-    private void IsGruond()
-    {
-        isGruond = Physics.Raycast(transform.position, Vector3.down, 5f, GruondLayer);
-    }
-
     private void TryCroush()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -138,6 +169,34 @@ public class Player : MonoBehaviour
             Crouch();
         }
     }
+
+    #endregion
+
+    #region action
+
+    private void Grab()
+    {
+        Debug.DrawRay(transform.position, transform.forward, Color.red, 100f);
+        if (Physics.Raycast(transform.position, transform.forward, out ray, rayLength, grabObject))
+        {
+            Debug.Log("Grab");
+            Debug.Log(ray.collider.name);
+            hasItem = ray.collider.gameObject;
+            //interObject.GetComponent<InterObject>().Action();
+        }
+    }
+
+    private void CancleGrab()
+    {
+        hasItem = null;
+    }
+
+    private void IsGruond()
+    {
+        isGruond = Physics.Raycast(transform.position, Vector3.down, 5f, gruondLayer);
+    }
+
+   
 
     public void Crouch()
     {
@@ -214,6 +273,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
+    #region Interaction
     private void Interaction()
     {
 
@@ -240,7 +300,9 @@ public class Player : MonoBehaviour
         }
 
     }
+    #endregion
 
+    #region OnTrigger
     private void OnTriggerStay(Collider other)
     {
   
@@ -250,4 +312,6 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    #endregion
 }
