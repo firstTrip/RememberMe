@@ -51,9 +51,13 @@ public class Player : MonoBehaviour
 
 
     [SerializeField] private GameObject hasItem;
+    [SerializeField] private GameObject itmePoint;
+ 
+    [Space]
     private GameObject interObject;
     private RaycastHit ray;
     private bool isCrouch;
+
     #endregion
 
     #region Component
@@ -130,7 +134,7 @@ public class Player : MonoBehaviour
     #region Try Func
     private void TryGrab()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.E))
         {
             Grab();
         }
@@ -176,19 +180,40 @@ public class Player : MonoBehaviour
 
     private void Grab()
     {
-        Debug.DrawRay(transform.position, transform.forward, Color.red, 100f);
-        if (Physics.Raycast(transform.position, transform.forward, out ray, rayLength, grabObject))
+        Debug.DrawRay(transform.position, theCamera.transform.forward, Color.blue, 100f);
+        if (Physics.Raycast(transform.position, theCamera.transform.forward, out ray, rayLength, grabObject))
         {
             Debug.Log("Grab");
             Debug.Log(ray.collider.name);
             hasItem = ray.collider.gameObject;
-            //interObject.GetComponent<InterObject>().Action();
+            SetEquip(hasItem, true);
+            hasItem.GetComponent<GrabIObject>().Action();
         }
     }
 
     private void CancleGrab()
     {
-        hasItem = null;
+        if(hasItem != null)
+        {
+            Debug.Log("Cancle");
+            SetEquip(hasItem, false);
+            hasItem.GetComponent<GrabIObject>().DisAction();
+            hasItem = null;
+        }
+     
+    }
+
+    void SetEquip(GameObject item, bool isEquip)
+    {
+        Collider[] itemColliders = item.GetComponents<Collider>();
+        Rigidbody itemRigidody = item.GetComponent<Rigidbody>();
+
+        foreach (Collider itemCollider in itemColliders)
+        {
+            itemCollider.enabled = !isEquip;
+        }
+
+        itemRigidody.isKinematic = isEquip;
     }
 
     private void IsGruond()
