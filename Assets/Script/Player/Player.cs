@@ -134,12 +134,23 @@ public class Player : MonoBehaviour
     #region Try Func
     private void TryGrab()
     {
-        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.E))
+       
+        if (Input.GetMouseButton(0))
         {
             Grab();
         }
-        
-        if(Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.E))
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            CancleGrab();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Grab();
+        }
+        else if (Input.GetKeyUp(KeyCode.E))
         {
             CancleGrab();
         }

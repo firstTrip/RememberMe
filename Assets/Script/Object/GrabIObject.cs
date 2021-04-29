@@ -17,7 +17,6 @@ public class GrabIObject : MonoBehaviour
 
     public void Action()
     {
-        //SetEquip(this.gameObject, this.gameObject);
         transform.SetParent(objectPoint.transform);
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.localRotation = new Quaternion(0, 0, 0, 0);
@@ -25,7 +24,6 @@ public class GrabIObject : MonoBehaviour
 
     public void DisAction()
     {
-        //SetEquip(this.gameObject, false);
         objectPoint.transform.DetachChildren();
     }
 
