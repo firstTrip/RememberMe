@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrabIObject : MonoBehaviour
+public class GrabObject : MonoBehaviour
 {
     protected GameObject player;
     protected GameObject objectPoint;

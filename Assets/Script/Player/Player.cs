@@ -6,12 +6,17 @@ public class Player : MonoBehaviour
 {
 
     #region 변수
+
     [Header("이동 속도")]
     [SerializeField] private float moveForce;
     [SerializeField] private float applyForce;
     [SerializeField] private float runForce;
     [SerializeField] private float jumpForce;
     [SerializeField] private float crouchForce;
+
+    [Space]
+    [Header("HP")]
+    [Tooltip("HP")][SerializeField] private float HP;
 
     [Space]
     [Header("물건 인식 길이:")]
@@ -189,6 +194,16 @@ public class Player : MonoBehaviour
 
     #region action
 
+    public void GetDamage(float Damage)
+    {
+        HP -= Damage;
+
+        if(HP == 0)
+        {
+            Debug.Log("Death");
+        }
+    }
+
     private void Grab()
     {
         Debug.DrawRay(transform.position, theCamera.transform.forward, Color.blue, 100f);
@@ -198,7 +213,7 @@ public class Player : MonoBehaviour
             Debug.Log(ray.collider.name);
             hasItem = ray.collider.gameObject;
             SetEquip(hasItem, true);
-            hasItem.GetComponent<GrabIObject>().Action();
+            hasItem.GetComponent<GrabObject>().Action();
         }
     }
 
@@ -208,13 +223,13 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Cancle");
             SetEquip(hasItem, false);
-            hasItem.GetComponent<GrabIObject>().DisAction();
+            hasItem.GetComponent<GrabObject>().DisAction();
             hasItem = null;
         }
      
     }
 
-    void SetEquip(GameObject item, bool isEquip)
+    private void SetEquip(GameObject item, bool isEquip)
     {
         Collider[] itemColliders = item.GetComponents<Collider>();
         Rigidbody itemRigidody = item.GetComponent<Rigidbody>();
@@ -257,7 +272,6 @@ public class Player : MonoBehaviour
         float _posY = theCamera.transform.localPosition.y;
         int count = 0;
 
-        Debug.Log(_posY);
         while(_posY != applyCrouchPosY)
         {
             count++;

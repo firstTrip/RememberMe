@@ -9,6 +9,7 @@ public class GameManger : MonoBehaviour
     {
         AudioManager.Instance.PlaySound("BGM");
 
+        DataManager.Instance.Save();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -17,6 +18,9 @@ public class GameManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            DataManager.Instance.Load();
+        }
     }
 }

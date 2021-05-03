@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using BansheeGz.BGDatabase;
 
-public class DataManager : MonoBehaviour
+public class DataManager : B_SaveLoad
 {
     /*
     public GameData _gameData;
@@ -57,6 +58,34 @@ public class DataManager : MonoBehaviour
         #endregion
 
     }
-
     
+    public bool HasSavedFile
+    {
+        get{ return File.Exists(SaveFilePath); }
+    }
+
+    public string SaveFilePath
+    {
+        get{ return Path.Combine(Application.persistentDataPath, "bg_save_data.dat"); }
+    }
+
+    public void Save()
+    {
+        Debug.Log(SaveFilePath);
+        Debug.Log(BGRepo.I.Addons.Get<BGAddonSaveLoad>().Save());
+        File.WriteAllBytes(SaveFilePath, BGRepo.I.Addons.Get<BGAddonSaveLoad>().Save());
+    }
+
+    public void Load()
+    {
+        if (!HasSavedFile)
+        {
+            Debug.Log("Don't Load");
+            return;
+        }
+
+        Debug.Log("Load");
+        Debug.Log(BGRepo.I.Addons.Get<BGAddonSaveLoad>().Save());
+        BGRepo.I.Addons.Get<BGAddonSaveLoad>().Load(File.ReadAllBytes(SaveFilePath));
+    }
 }
