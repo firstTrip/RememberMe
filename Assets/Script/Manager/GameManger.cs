@@ -9,7 +9,7 @@ public class GameManger : MonoBehaviour
     {
         AudioManager.Instance.PlaySound("BGM");
 
-        DataManager.Instance.Save();
+        DataManager.Instance.Load();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -22,5 +22,11 @@ public class GameManger : MonoBehaviour
         {
             DataManager.Instance.Load();
         }
+    }
+
+
+    private void OnApplicationQuit()
+    {
+        DataManager.Instance.Save();
     }
 }

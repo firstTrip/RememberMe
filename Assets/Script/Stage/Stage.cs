@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage : BGBehaviourScript
+public class Stage : MonoBehaviour
 {
 
     public bool clearFlag;
