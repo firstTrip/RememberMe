@@ -256,6 +256,28 @@ public partial class D_StageData : BGEntity
 			_F_StageClear[Index] = value;
 		}
 	}
+	public UnityEngine.Vector3 F_StagePosition
+	{
+		get
+		{
+			return _F_StagePosition[Index];
+		}
+		set
+		{
+			_F_StagePosition[Index] = value;
+		}
+	}
+	public UnityEngine.Vector4 F_StageRotation
+	{
+		get
+		{
+			return _F_StageRotation[Index];
+		}
+		set
+		{
+			_F_StageRotation[Index] = value;
+		}
+	}
 	private static BansheeGz.BGDatabase.BGFieldEntityName _ufle12jhs77_F_name;
 	public static BansheeGz.BGDatabase.BGFieldEntityName _F_name
 	{
@@ -290,6 +312,24 @@ public partial class D_StageData : BGEntity
 		{
 			if(_ufle12jhs77_F_StageClear==null || _ufle12jhs77_F_StageClear.IsDeleted) _ufle12jhs77_F_StageClear=(BansheeGz.BGDatabase.BGFieldBool) MetaDefault.GetField(new BGId(5024408334515454238,6020562075830421135));
 			return _ufle12jhs77_F_StageClear;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldVector3 _ufle12jhs77_F_StagePosition;
+	public static BansheeGz.BGDatabase.BGFieldVector3 _F_StagePosition
+	{
+		get
+		{
+			if(_ufle12jhs77_F_StagePosition==null || _ufle12jhs77_F_StagePosition.IsDeleted) _ufle12jhs77_F_StagePosition=(BansheeGz.BGDatabase.BGFieldVector3) MetaDefault.GetField(new BGId(4789782483200644650,16797022101096301186));
+			return _ufle12jhs77_F_StagePosition;
+		}
+	}
+	private static BansheeGz.BGDatabase.BGFieldVector4 _ufle12jhs77_F_StageRotation;
+	public static BansheeGz.BGDatabase.BGFieldVector4 _F_StageRotation
+	{
+		get
+		{
+			if(_ufle12jhs77_F_StageRotation==null || _ufle12jhs77_F_StageRotation.IsDeleted) _ufle12jhs77_F_StageRotation=(BansheeGz.BGDatabase.BGFieldVector4) MetaDefault.GetField(new BGId(5692496847795954960,13914923395111614137));
+			return _ufle12jhs77_F_StageRotation;
 		}
 	}
 	private static readonly D_SaveLoad.Factory _factory0_PFS = new D_SaveLoad.Factory();

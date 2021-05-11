@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using BansheeGz.BGDatabase;
 
-public class Stage1_Cube : B_StageData 
+public class Stage1_Cube : Stage 
 {
 
     private GameObject Player;
@@ -16,13 +16,14 @@ public class Stage1_Cube : B_StageData
 
     private void Update()
     {
-        //OpenNextStage();
+        OpenNextStage();
 
+        /*
         if (Input.GetKeyDown(KeyCode.L))
         {
 
             Player.transform.position= ResponsePosition ;
-            Player.transform.rotation =ResponseRotation ;
+            Player.transform.rotation = ResponseRotation ;
             //this.clearFlag = StageClear;
             DataManager.Instance.Load();
         }
@@ -43,10 +44,10 @@ public class Stage1_Cube : B_StageData
         if (Input.GetKeyDown(KeyCode.V))
         {
 
-        }
+        }*/
     }
 
-    /*
+    
     public override void CallFinish(bool temp)
     {
         clearFlag = temp;
@@ -62,5 +63,5 @@ public class Stage1_Cube : B_StageData
             }
         }
     }
-    */
+    
 }

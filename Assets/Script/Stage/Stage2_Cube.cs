@@ -14,6 +14,14 @@ public class Stage2_Cube : Stage
     }
     private void Update()
     {
+
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            Debug.Log(b_StageData.StagePosition);
+            this.transform.position = b_StageData.StagePosition;
+
+        }
         if (stageStartFlag)
         {
             for (int i = 0; i < closeDoors.Length; i++)
@@ -77,6 +85,7 @@ public class Stage2_Cube : Stage
         if (other.CompareTag("Player"))
         {
             this.stageStartFlag = true;
+            DataManager.Instance.Save();
         }
     }
 }

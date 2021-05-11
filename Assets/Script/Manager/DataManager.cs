@@ -56,6 +56,7 @@ public class DataManager : MonoBehaviour
 
     public void Save()
     {
+        stageManager.Instance.SavePoint();
         File.WriteAllBytes(SaveFilePath, BGRepo.I.Addons.Get<BGAddonSaveLoad>().Save());
     }
 
@@ -63,6 +64,9 @@ public class DataManager : MonoBehaviour
     {
         if (!HasSavedFile) return;
 
+        stageManager.Instance.LoadPoint();
         BGRepo.I.Addons.Get<BGAddonSaveLoad>().Load(File.ReadAllBytes(SaveFilePath));
     }
+
+   
 }

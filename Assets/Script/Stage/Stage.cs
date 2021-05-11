@@ -11,9 +11,12 @@ public class Stage : MonoBehaviour
     public GameObject[] closeDoors;
     public GameObject[] Key;
 
+
+    public B_StageData b_StageData;
     void Start()
     {
         clearFlag = false;
+        b_StageData = GetComponent<B_StageData>();
     }
 
     public virtual void CallFinish(bool temp)
@@ -24,6 +27,12 @@ public class Stage : MonoBehaviour
     public virtual void CallFinish()
     {
 
+    }
+
+    public virtual void Initialized()
+    {
+        
+        //this.transform.rotation = b_StageData.StageRotation;
     }
 
     public virtual void OpenNextStage()

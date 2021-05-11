@@ -9,9 +9,14 @@ public class GameManger : MonoBehaviour
     {
         AudioManager.Instance.PlaySound("BGM");
 
-        DataManager.Instance.Load();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+    }
+
+    private void Awake()
+    {
+        //DataManager.Instance.Load();
 
     }
 
@@ -21,6 +26,7 @@ public class GameManger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             DataManager.Instance.Load();
+
         }
     }
 
