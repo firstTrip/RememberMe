@@ -1819,6 +1819,11 @@ PrefabInstance:
       propertyPath: nextStage.Array.data[2]
       value: 
       objectReference: {fileID: 381833051}
+    - target: {fileID: 1722531724610813717, guid: 6509ce0067b7c8e4b9991b7afd49bb3c,
+        type: 3}
+      propertyPath: b_StageData
+      value: 
+      objectReference: {fileID: 876660534}
     - target: {fileID: 1746207316916586579, guid: 6509ce0067b7c8e4b9991b7afd49bb3c,
         type: 3}
       propertyPath: m_Layer
@@ -2217,6 +2222,7 @@ MonoBehaviour:
   closeDoors:
   - {fileID: 1524995132}
   Key: []
+  b_StageData: {fileID: 0}
   shakeDuration: 0
   shakeVector: 0
   nextStage:
@@ -2481,5 +2487,10 @@ PrefabInstance:
       propertyPath: initWithFirst
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9203644189310876460, guid: 5a4405d878f160841a51b8c4fefbc82f,
+        type: 3}
+      propertyPath: b_StageData
+      value: 
+      objectReference: {fileID: 29421920}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a4405d878f160841a51b8c4fefbc82f, type: 3}

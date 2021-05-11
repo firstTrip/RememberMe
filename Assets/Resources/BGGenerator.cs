@@ -267,7 +267,7 @@ public partial class D_StageData : BGEntity
 			_F_StagePosition[Index] = value;
 		}
 	}
-	public UnityEngine.Vector4 F_StageRotation
+	public UnityEngine.Quaternion F_StageRotation
 	{
 		get
 		{
@@ -323,12 +323,12 @@ public partial class D_StageData : BGEntity
 			return _ufle12jhs77_F_StagePosition;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldVector4 _ufle12jhs77_F_StageRotation;
-	public static BansheeGz.BGDatabase.BGFieldVector4 _F_StageRotation
+	private static BansheeGz.BGDatabase.BGFieldQuaternion _ufle12jhs77_F_StageRotation;
+	public static BansheeGz.BGDatabase.BGFieldQuaternion _F_StageRotation
 	{
 		get
 		{
-			if(_ufle12jhs77_F_StageRotation==null || _ufle12jhs77_F_StageRotation.IsDeleted) _ufle12jhs77_F_StageRotation=(BansheeGz.BGDatabase.BGFieldVector4) MetaDefault.GetField(new BGId(5692496847795954960,13914923395111614137));
+			if(_ufle12jhs77_F_StageRotation==null || _ufle12jhs77_F_StageRotation.IsDeleted) _ufle12jhs77_F_StageRotation=(BansheeGz.BGDatabase.BGFieldQuaternion) MetaDefault.GetField(new BGId(4927286363862233345,15134226064723963528));
 			return _ufle12jhs77_F_StageRotation;
 		}
 	}

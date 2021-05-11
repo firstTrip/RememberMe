@@ -88,7 +88,7 @@ public partial class B_StageData : BGEntityGo
 			_StagePosition[Entity.Index] = value;
 		}
 	}
-	public UnityEngine.Vector4 StageRotation
+	public UnityEngine.Quaternion StageRotation
 	{
 		get
 		{
@@ -144,12 +144,12 @@ public partial class B_StageData : BGEntityGo
 			return __StagePosition;
 		}
 	}
-	private static BansheeGz.BGDatabase.BGFieldVector4 __StageRotation;
-	public static BansheeGz.BGDatabase.BGFieldVector4 _StageRotation
+	private static BansheeGz.BGDatabase.BGFieldQuaternion __StageRotation;
+	public static BansheeGz.BGDatabase.BGFieldQuaternion _StageRotation
 	{
 		get
 		{
-			if(__StageRotation==null || __StageRotation.IsDeleted) __StageRotation=(BansheeGz.BGDatabase.BGFieldVector4) MetaDefault.GetField(new BGId(5692496847795954960,13914923395111614137));
+			if(__StageRotation==null || __StageRotation.IsDeleted) __StageRotation=(BansheeGz.BGDatabase.BGFieldQuaternion) MetaDefault.GetField(new BGId(4927286363862233345,15134226064723963528));
 			return __StageRotation;
 		}
 	}

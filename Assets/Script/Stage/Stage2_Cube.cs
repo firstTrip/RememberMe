@@ -19,8 +19,9 @@ public class Stage2_Cube : Stage
         if (Input.GetKeyDown(KeyCode.Y))
         {
             Debug.Log(b_StageData.StagePosition);
-            this.transform.position = b_StageData.StagePosition;
-
+            transform.localPosition = b_StageData.StagePosition;
+            Debug.Log(transform.position);
+            transform.rotation = b_StageData.StageRotation;
         }
         if (stageStartFlag)
         {
