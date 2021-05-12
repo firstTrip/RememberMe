@@ -86,14 +86,21 @@ public class Player : MonoBehaviour
         IsGruond();
         Interaction();
         //inputManager();
+        TryTalk();
         TryGrab();
         TryJump();
         TryCroush();
         TryRun();
 
+
         Move();
-        CharacterRotation();
-        CameraRotation();
+
+        if (!UIManager.Instance.isAction)
+        {
+            CharacterRotation();
+            CameraRotation();
+        }
+        
 
     }
 
@@ -115,8 +122,8 @@ public class Player : MonoBehaviour
     private void Move()
     {
 
-        float _moveDirX = Input.GetAxisRaw("Horizontal");
-        float _moveDirZ = Input.GetAxisRaw("Vertical");
+        float _moveDirX = UIManager.Instance.isAction ? 0 : Input.GetAxisRaw("Horizontal");
+        float _moveDirZ = UIManager.Instance.isAction ? 0 : Input.GetAxisRaw("Vertical");
 
         
         Vector3 _moveHorizontal = transform.right * _moveDirX;
@@ -190,6 +197,14 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    private void TryTalk()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            UIManager.Instance.Action();
+        }
+    }
     #endregion
 
     #region action
@@ -309,6 +324,7 @@ public class Player : MonoBehaviour
         float _yRotation = Input.GetAxisRaw("Mouse X");
         Vector3 _characterRotationY = new Vector3(0f, _yRotation, 0f) * lookSensitivity;
         rb.MoveRotation(rb.rotation * Quaternion.Euler(_characterRotationY));
+
     }
 
     private void CameraRotation()
