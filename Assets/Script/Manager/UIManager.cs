@@ -49,19 +49,21 @@ public class UIManager : MonoBehaviour
         #endregion
     }
 
-    public void Action()
+    public void TalkAction(GameObject scanObj)
     {
         if (isAction)
         {
             isAction = false;
             textPanel.SetActive(false);
+
         }
         else
         {
             isAction = true;
             textPanel.SetActive(true);
-            //scanObject = scanObj;
-            talkText.text = "Hello Wolrd!";
+            scanObject = scanObj;
+            talkText.text = "Hello Wolrd!" + scanObject.name;
+
         }
     }
 }

@@ -200,9 +200,14 @@ public class Player : MonoBehaviour
 
     private void TryTalk()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F)&& Physics.Raycast(transform.position, theCamera.transform.forward, out ray, rayLength))
         {
-            UIManager.Instance.Action();
+            if(ray.collider.gameObject.GetComponent<B_ObjectText>())
+            {
+                Debug.Log(ray.collider.gameObject.GetComponent<B_ObjectText>().Test[0]);
+                UIManager.Instance.TalkAction(ray.collider.gameObject);
+
+            }
         }
     }
     #endregion
@@ -224,8 +229,6 @@ public class Player : MonoBehaviour
         Debug.DrawRay(transform.position, theCamera.transform.forward, Color.blue, 100f);
         if (Physics.Raycast(transform.position, theCamera.transform.forward, out ray, rayLength, grabObject))
         {
-            Debug.Log("Grab");
-            Debug.Log(ray.collider.name);
             hasItem = ray.collider.gameObject;
             SetEquip(hasItem, true);
             hasItem.GetComponent<GrabObject>().Action();
@@ -236,7 +239,6 @@ public class Player : MonoBehaviour
     {
         if(hasItem != null)
         {
-            Debug.Log("Cancle");
             SetEquip(hasItem, false);
             hasItem.GetComponent<GrabObject>().DisAction();
             hasItem = null;
