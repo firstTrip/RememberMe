@@ -202,11 +202,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F)&& Physics.Raycast(transform.position, theCamera.transform.forward, out ray, rayLength))
         {
-            if(ray.collider.gameObject.GetComponent<B_ObjectText>())
+            if(ray.collider.gameObject.GetComponent<B_Test>())
             {
-                Debug.Log(ray.collider.gameObject.GetComponent<B_ObjectText>().Test[0]);
                 UIManager.Instance.TalkAction(ray.collider.gameObject);
-
             }
         }
     }

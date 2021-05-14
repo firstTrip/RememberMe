@@ -1,28 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class TalkManager : MonoBehaviour
 {
+
+    [SerializeField] private GameObject textPanel;
+    [SerializeField] private TextMeshProUGUI talkText;
+    private Text teststes;
+    [SerializeField] private GameObject scanObject;
+    public bool isAction;
 
     #region SingleTon
     /* SingleTon */
-    private static UIManager instance;
-    public static UIManager Instance
+    private static TalkManager instance;
+    public static TalkManager Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = GameObject.FindObjectOfType(typeof(UIManager)) as UIManager;
+                instance = GameObject.FindObjectOfType(typeof(TalkManager)) as TalkManager;
                 if (!instance)
                 {
                     GameObject container = new GameObject();
-                    container.name = "UIManager";
-                    instance = container.AddComponent(typeof(UIManager)) as UIManager;
+                    container.name = "TalkManager";
+                    instance = container.AddComponent(typeof(TalkManager)) as TalkManager;
                 }
             }
 
@@ -30,13 +36,6 @@ public class UIManager : MonoBehaviour
         }
     }
     #endregion
-
-    [SerializeField] private GameObject textPanel;
-    [SerializeField] private TextMeshProUGUI talkText;
-    private Text teststes;
-    [SerializeField] private GameObject scanObject;
-
-    public bool isAction;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +51,11 @@ public class UIManager : MonoBehaviour
         #endregion
     }
 
-
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
     public void TalkAction(GameObject scanObj)
     {
         if (isAction)
@@ -70,6 +73,4 @@ public class UIManager : MonoBehaviour
             TMProUGUIDoText.DoText(talkText, 1.0f);
         }
     }
-
-    
 }

@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 59112500}
   - component: {fileID: 59112499}
   - component: {fileID: 59112503}
+  - component: {fileID: 59112504}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -327,6 +328,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+--- !u!114 &59112504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59112498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f67cabfbaf9594e9d78f442ad8c57d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEntityChange:
+    m_PersistentCalls:
+      m_Calls: []
+  entityIdString: hzCNiegj+ky4gmEBC1nT7A
+  metaIdString: 
+  initWithFirst: 0
 --- !u!1001 &153395094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -742,13 +761,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 459742945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00228bb0f3b798f408ab9b1f183d05bf, type: 3}
+  m_Script: {fileID: 11500000, guid: b7f67cabfbaf9594e9d78f442ad8c57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnEntityChange:
     m_PersistentCalls:
       m_Calls: []
-  entityIdString: G4qLtWspRkyH/PpgXN6F9A
+  entityIdString: Bby7m1JSSke9CWY2F05dmA
   metaIdString: 
   initWithFirst: 0
 --- !u!54 &459742951
